@@ -27,3 +27,7 @@ Export the following environment variables:
 Execute
 
 `./dagr`
+
+## Notes
+
+Built and tested on Arch Linux with curl 8.13.0-2 on kernel 6.14.3-arch1-1.
