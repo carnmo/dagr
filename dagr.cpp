@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
 		try{
 			auto repos = json::parse(response);
 
-			if(repos.empty() || (repos.contains("status") && repos.at("status") != 401)){
+			if(repos.empty() || (repos.contains("status") && repos.at("status") == "401")){
 				std::cout << "Bad credentials or no repos." << std::endl;
 				result = false;
 			}else{
