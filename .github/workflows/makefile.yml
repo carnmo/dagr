@@ -14,5 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: get-curl
+      run: sudo apt install -y curl
+    
     - name: build
       run: make
