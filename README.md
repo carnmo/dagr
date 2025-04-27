@@ -4,9 +4,9 @@ Download All Github Repositories for a Github organization as a zip file per rep
 
 ![By Brenda Clarke - Knife 3Uploaded by Partyzan_XXI, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=8365509](https://upload.wikimedia.org/wikipedia/commons/0/07/Knife_3_%283466945985%29.jpg) 
 
-## Acknowledgment
+## Acknowledgments
 
-* dagr uses [JSON for Modern C++](https://github.com/nlohmann/json)
+* dagr includes [JSON for Modern C++](https://github.com/nlohmann/json)
 * Dagger image by Brenda Clarke under Creative Commons Attribution 2.0
 
 ## Build requirements
