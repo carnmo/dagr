@@ -11,6 +11,7 @@ Download all Github repositories from a Github organization as a zip file per re
 
 ## Build requirements
 
+* [gcc](https://gcc.gnu.org/)
 * [make](https://www.gnu.org/software/make/)
 * [libcurl](https://curl.se/libcurl/)
 
