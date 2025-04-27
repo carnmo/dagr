@@ -25,24 +25,28 @@ int main(int argc, char* argv[]) {
 	while(result){
 		std::string response = net::download("https://api.github.com/orgs/" + github_org + "/repos?page=" + std::to_string(page), github_token);
 
-		try{
-			auto repos = json::parse(response);
+		if(response.length() > 0){
+			try{
+				auto repos = json::parse(response);
 
-			if(repos.empty() || (repos.contains("status") && repos.at("status") == "401")){
-				std::cout << "Bad credentials or no repos." << std::endl;
-				result = false;
-			}else{
-				for(auto& repo : repos.items()){
-					std::string repo_name = repo.value().at("name");
-					std::cout << "Downloading " << repo_name << ".zip" << std::endl;
-					std::string zip = net::download("https://api.github.com/repos/" + github_org + "/" + repo_name + "/zipball/", github_token);
-					std::ofstream fs(repo_name + ".zip", std::ios::out | std::ios::binary);
-					fs.write(zip.c_str(), zip.length());
-					fs.close();
+				if(repos.empty() || (repos.contains("status") && repos.at("status") == "401")){
+					std::cout << "Bad credentials or no repos." << std::endl;
+					result = false;
+				}else{
+					for(auto& repo : repos.items()){
+						std::string repo_name = repo.value().at("name");
+						std::cout << "Downloading " << repo_name << ".zip" << std::endl;
+						std::string zip = net::download("https://api.github.com/repos/" + github_org + "/" + repo_name + "/zipball/", github_token);
+						std::ofstream fs(repo_name + ".zip", std::ios::out | std::ios::binary);
+						fs.write(zip.c_str(), zip.length());
+						fs.close();
+					}
 				}
+			}catch(const json::parse_error& e){
+				std::cerr << "Could not parse json." << std::endl;
+				return 1;
 			}
-		}catch(const json::parse_error& e){
-			std::cerr << "Error parsing JSON response: " << e.what() << std::endl;
+		}else{
 			return 1;
 		}
 
