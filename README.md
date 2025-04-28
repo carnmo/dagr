@@ -6,14 +6,14 @@ Download all Github repositories from a Github organization as a zip file per re
 
 ## Acknowledgments
 
-* dagr includes [JSON for Modern C++](https://github.com/nlohmann/json)
+* Includes [JSON for Modern C++](https://github.com/nlohmann/json)
+* Includes dynamically linked [libcurl](https://curl.haxx.se/)
 * Dagger image by Brenda Clarke under Creative Commons Attribution 2.0
 
 ## Build requirements
 
 * [gcc](https://gcc.gnu.org/)
 * [make](https://www.gnu.org/software/make/)
-* [libcurl](https://curl.se/libcurl/)
 
 ## Build
 
@@ -21,14 +21,13 @@ Download all Github repositories from a Github organization as a zip file per re
 
 ## Run
 
-Export the following environment variables:
-* GITHUB_ORG = your Github organization
-* GITHUB_TOKEN = your [Fine-grained Personal Access Token](https://docs.github.com/en/rest/authentication/keeping-your-api-credentials-secure)
+1. Export the following environment variables:
+	* GITHUB_ORG = Organization name 
+	* GITHUB_TOKEN = [Fine-grained Personal Access Token](https://docs.github.com/en/rest/authentication/keeping-your-api-credentials-secure) configured with relevant read access.
+2. Execute `dagr.exe`
 
-Execute
-
-`./dagr`
+Repositories will be downloaded to the current directory.
 
 ## Notes
 
-Built and tested on Arch Linux with curl 8.13.0-2 on kernel 6.14.3-arch1-1.
+* Built and tested with [mingw-w64](https://www.mingw-w64.org/) on Windows 11 24H2.

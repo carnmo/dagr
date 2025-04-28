@@ -1,6 +1,6 @@
 #include "net.h"
 
-std::string net::download(std::string url, std::string token){
+std::string net::download(std::string url, std::string github_token){
 	CURL* curl = curl_easy_init();
 
 	if(!curl){
@@ -13,11 +13,12 @@ std::string net::download(std::string url, std::string token){
 
 	struct curl_slist* headers = NULL;
 	headers = curl_slist_append(headers, "Accept: application/vnd.github+json");
-	std::string auth_header = "Authorization: Bearer " + token;
+	std::string auth_header = "Authorization: Bearer " + github_token;
 	headers = curl_slist_append(headers, auth_header.c_str());
 
 	curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
 	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+	curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0);
 	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 	curl_easy_setopt(curl, CURLOPT_USERAGENT, "dagr");
 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &output);

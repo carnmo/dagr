@@ -3,10 +3,10 @@
 
 rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
-SOURCEPATH=src
 SOURCES=$(call rwildcard,.,*.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
-TARGET=dagr
+
+TARGET=dagr.exe
 
 CXXFLAGS=-g0
 CXXFLAGS=-m64
@@ -21,13 +21,17 @@ CXXFLAGS+=-Werror
 CXXFLAGS+=-Wextra
 CXXFLAGS+=-Wpedantic
 
-LDLIBS=-lcurl
+LDLIBS+=-Ilib/curl -Llib/curl -lcurl
 
-all: clean $(TARGET)
+all: $(TARGET) deps
 
 clean:
 >$(RM) $(OBJECTS)
 >$(RM) $(TARGET)
+>$(RM) libcurl-x64.dll
+
+deps:
+>@xcopy .\lib\curl\libcurl-x64.dll . /Q /Y
 
 run:
 >./$(TARGET)

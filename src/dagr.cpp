@@ -1,5 +1,5 @@
-#include "lib/nlohmann-json.hpp"
-#include "lib/net.h"
+#include "../lib/nlohmann-json/nlohmann-json.hpp"
+#include "net.h"
 #include <stdexcept>
 #include <string>
 
