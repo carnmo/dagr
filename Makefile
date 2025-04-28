@@ -31,7 +31,11 @@ clean:
 >$(RM) libcurl-x64.dll
 
 deps:
+ifeq ($(OS),Windows_NT)
 >@xcopy .\lib\curl\libcurl-x64.dll . /Q /Y
+else
+>@cp lib/curl/libcurl-x64.dll .
+endif
 
 run:
 >./$(TARGET)
