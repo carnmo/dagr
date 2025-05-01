@@ -30,4 +30,4 @@ Repositories will be downloaded to the current directory.
 
 ## Notes
 
-* Built and tested with [mingw-w64](https://www.mingw-w64.org/) on Windows 11 24H2 and Kubuntu 25.04.
+* Built and tested with [mingw-w64](https://www.mingw-w64.org/) on Windows 11 24H2 and Kubuntu 25.04, Arch Linux.
