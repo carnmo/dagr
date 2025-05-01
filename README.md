@@ -7,7 +7,7 @@ Download all Github repositories from a Github organization as a zip file per re
 ## Acknowledgments
 
 * Includes [JSON for Modern C++](https://github.com/nlohmann/json)
-* Includes dynamically linked [libcurl](https://curl.haxx.se/)
+* Includes dynamically linked [libcurl](https://curl.haxx.se/) on Windows or statically linked on Linux.
 * Dagger image by Brenda Clarke under Creative Commons Attribution 2.0
 
 ## Build requirements
@@ -30,4 +30,4 @@ Repositories will be downloaded to the current directory.
 
 ## Notes
 
-* Built and tested with [mingw-w64](https://www.mingw-w64.org/) on Windows 11 24H2.
+* Built and tested with [mingw-w64](https://www.mingw-w64.org/) on Windows 11 24H2 and Kubuntu 25.04.
